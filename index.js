@@ -43,4 +43,4 @@ function app(req, res) {
 
 const serverHttp = http.createServer(app);
 
-serverHttp.listen(80);
+serverHttp.listen(process.env.PORT || 5000);
