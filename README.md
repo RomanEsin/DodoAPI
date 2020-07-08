@@ -22,7 +22,7 @@ Response {
             price: Int
             }],
             
-  oother: [{id: String,
+  other: [{id: String,
             name: String,
             description: String,
             price: Int
