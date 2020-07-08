@@ -9,20 +9,20 @@ If you would like to add another service to fetch data from mare sure to contrib
 
 Returns an obect in this format:
 ```
-Response {
-  combos: [{id: String,
+{
+  "combos": [{id: String,
             name: String,
             description: String,
             price: Int
             }],
             
-  pizzas: [{id: String,
+  "pizzas": [{id: String,
             name: String,
             description: String,
             price: Int
             }],
             
-  other: [{id: String,
+  "other": [{id: String,
             name: String,
             description: String,
             price: Int
