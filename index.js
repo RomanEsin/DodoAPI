@@ -33,7 +33,7 @@ function app(req, res) {
         }
 
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(JSON.stringify(data, null, 4));
+        res.end(JSON.stringify(data, null, 2));
   })
   .catch(function(err){
         //handle error
