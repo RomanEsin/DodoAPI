@@ -1,0 +1,7 @@
+# Dodo Pizza API
+
+This API allows you to fetch data from [Dodo Pizza Website](https://dodopizza.ru) by scraping HTML elements from it.
+
+If you would like to add another service to fetch data from mare sure to contribute to this repo.
+
+### Impotant: Only use websites that allow web scraping!
