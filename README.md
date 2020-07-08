@@ -23,9 +23,9 @@ Returns an obect in this format:
             }],
             
   "other": [{id: String,
-              name: String,
-              description: String,
-              price: Int
+             name: String,
+             description: String,
+             price: Int
             }]            
 }
 ```
