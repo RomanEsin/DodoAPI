@@ -22,14 +22,17 @@ function app(req, res) {
         let urls = root.querySelectorAll('.sc-1x0pa1d-6');
         // console.log(base + urls[1].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3])
 
-        var data = {combos: [], other: []};
+        var data = {combos: [], pizzas: [], other: []};
 
         for (var i = 0; i < names.length; i++) {
-        let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
+            let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
+            let obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
             if (id.length > 8) {
-                data.combos.push({id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)});
+                data.combos.push(obj);
+            } else if (id.length < 4) {
+                data.pizzas.push(obj);
             } else {
-                data.other.push({id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)}); 
+                data.other.push(obj);
             }
         }
 
