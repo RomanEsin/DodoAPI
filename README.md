@@ -11,21 +11,21 @@ Returns an obect in this format:
 ```
 {
   "combos": [{id: String,
-            name: String,
-            description: String,
-            price: Int
+              name: String,
+              description: String,
+              price: Int
             }],
             
   "pizzas": [{id: String,
-            name: String,
-            description: String,
-            price: Int
+              name: String,
+              description: String,
+              price: Int
             }],
             
   "other": [{id: String,
-            name: String,
-            description: String,
-            price: Int
+              name: String,
+              description: String,
+              price: Int
             }]            
 }
 ```
