@@ -5,3 +5,27 @@ This API allows you to fetch data from [Dodo Pizza Website](https://dodopizza.ru
 If you would like to add another service to fetch data from mare sure to contribute to this repo and make a pull request!
 
 ### Impotant: Only use websites that allow web scraping!
+
+
+Returns an obect in this format:
+```
+Response {
+  combos: [{id: String,
+            name: String,
+            description: String,
+            price: Int
+            }],
+            
+  pizzas: [{id: String,
+            name: String,
+            description: String,
+            price: Int
+            }],
+            
+  oother: [{id: String,
+            name: String,
+            description: String,
+            price: Int
+            }]            
+}
+```
