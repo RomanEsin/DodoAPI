@@ -25,6 +25,7 @@ function app(req, res) {
         var data = {combos: [], pizzas: [], other: []};
 
         var images = {
+            // Combos 
             "73AE1E392BCC42C680895D0B80F44FB6": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/25__snk_drink_sauce.jpg",
             "42F69F9A18084651B8555BDD96E2BA45": "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e7325a879cba451fa1faafb39e6f68f5_292x292.png",
             "E546665BAE78438685D68497711B8841": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30_thinv5.jpg",
@@ -39,6 +40,7 @@ function app(req, res) {
             "580072E5E79E4928B08D7FCBA987363C": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/7_30/combo9_discountv2.jpg",
             "E527D2F4569A419DAA1449441111CA49": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/10_30/combo10_discountv2.jpg",
 
+            // Pizzas
             "159": "https://cdn.dodostatic.net/static/Img/Products/c1d628642bfb45a6be2a6368142a8dd2_292x292.jpeg",
             "222": "https://cdn.dodostatic.net/static/Img/Products/1e414bf6663645f592d166329e1fec83_292x292.jpeg",
             "219": "https://cdn.dodostatic.net/static/Img/Products/04dff3cf16144112aabdd5f79182f663_292x292.jpeg",
@@ -73,7 +75,11 @@ function app(req, res) {
         for (var i = 0; i < names.length; i++) {
             let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
 
-            var obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
+            var obj = {
+                id: id, 
+                name: names[i].childNodes[0].rawText, 
+                description: descriptions[i].childNodes[2].rawText, 
+                price: parseInt(prices[i].childNodes[0].childNodes[0].rawText.replace(/\s+/g, '')};
             if (images[id]) {
                 obj.img = images[id];
             }
