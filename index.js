@@ -27,9 +27,10 @@ function app(req, res) {
         for (var i = 0; i < names.length; i++) {
             let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
             let obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
+
             if (id.length > 8) {
                 data.combos.push(obj);
-            } else if (id.length < 4) {
+            } else if (i < data.combos.length + 29) {
                 data.pizzas.push(obj);
             } else {
                 data.other.push(obj);
