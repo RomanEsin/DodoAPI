@@ -24,27 +24,28 @@ function app(req, res) {
 
         var data = {combos: [], pizzas: [], other: []};
 
-        var images = [
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/25__snk_drink_sauce.jpg",
-            "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e7325a879cba451fa1faafb39e6f68f5_292x292.png",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30_thinv5.jpg",
-            "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/b6fcbf6db3424541830c0b723d085373_292x292.png",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/Privet.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/4_dodsterv2.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_25_snack/combo2_discount.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/30_2_snack/combo4_discount.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_30/combo5_discount.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30/combo7_discountv2.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/5_30/combo8_discountv2.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/7_30/combo9_discountv2.jpg",
-            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/10_30/combo10_discountv2.jpg"
-        ]
+        var images = {
+            "73AE1E392BCC42C680895D0B80F44FB6": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/25__snk_drink_sauce.jpg",
+            "42F69F9A18084651B8555BDD96E2BA45": "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e7325a879cba451fa1faafb39e6f68f5_292x292.png",
+            "E546665BAE78438685D68497711B8841": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30_thinv5.jpg",
+            "11EAA6368A28AB6E8504848A34C63070": "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/b6fcbf6db3424541830c0b723d085373_292x292.png",
+            "F216F48B67344D04B466CB459003DA81": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/Privet.jpg",
+            "B9C9F2F920BE49EEAE9F72AED31C53F6": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/4_dodsterv2.jpg",
+            "4303E61A80D44BE98745652E320FAE67": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_25_snack/combo2_discount.jpg",
+            "57B6FDEA218A405EB9BACFAF3D624EA0": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/30_2_snack/combo4_discount.jpg",
+            "FBE5C50F3F9E4BAE9EFE7F93E8CCFE2E": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_30/combo5_discount.jpg",
+            "6CF41AEE3FB84F25856A997C5EA272A3": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30/combo7_discountv2.jpg",
+            "625ED2AA2F8B43CDB73BFE2C0D9106AD": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/5_30/combo8_discountv2.jpg",
+            "580072E5E79E4928B08D7FCBA987363C": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/7_30/combo9_discountv2.jpg",
+            "E527D2F4569A419DAA1449441111CA49": "https://dodopizza-a.akamaihd.net/static/combotemplates/292/10_30/combo10_discountv2.jpg"
+        }
 
         for (var i = 0; i < names.length; i++) {
             let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
+
             var obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
-            if (i < images.length) {
-                obj.img = images[i];
+            if (images[id]) {
+                obj.img = images[id];
             }
 
             if (id.length > 8) {
