@@ -24,9 +24,28 @@ function app(req, res) {
 
         var data = {combos: [], pizzas: [], other: []};
 
+        var images = [
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/25__snk_drink_sauce.jpg",
+            "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e7325a879cba451fa1faafb39e6f68f5_292x292.png",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30_thinv5.jpg",
+            "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/b6fcbf6db3424541830c0b723d085373_292x292.png",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/Privet.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/4_dodsterv2.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_25_snack/combo2_discount.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/30_2_snack/combo4_discount.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/2_30/combo5_discount.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/3_30/combo7_discountv2.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/5_30/combo8_discountv2.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/7_30/combo9_discountv2.jpg",
+            "https://dodopizza-a.akamaihd.net/static/combotemplates/292/10_30/combo10_discountv2.jpg"
+        ]
+
         for (var i = 0; i < names.length; i++) {
             let id = urls[i].rawAttrs.split(' ')[0].split('=')[1].slice(1, -1).split('_')[3]
-            let obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
+            var obj = {id: id, name: names[i].childNodes[0].rawText, description: descriptions[i].childNodes[2].rawText, price: parseInt(prices[i].childNodes[0].childNodes[0].rawText)};
+            if (i < images.length) {
+                obj.img = images[i];
+            }
 
             if (id.length > 8) {
                 data.combos.push(obj);
