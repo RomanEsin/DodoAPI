@@ -79,7 +79,7 @@ function app(req, res) {
                 id: id, 
                 name: names[i].childNodes[0].rawText, 
                 description: descriptions[i].childNodes[2].rawText, 
-                price: parseInt(prices[i].childNodes[0].childNodes[0].rawText.replace(/\s+/g, ''))};
+                price: parseInt(prices[i].childNodes[0].childNodes[0].rawText.replace(',', ''))};
             if (images[id]) {
                 obj.img = images[id];
             }
